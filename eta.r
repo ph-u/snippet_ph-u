@@ -9,7 +9,7 @@
 
 eTa = function(ori, cur, tot, msg=""){
   t.now = Sys.time()
-  t.more = as.numeric(t.now - ori) * (tot / cur - 1)
-  cat(paste(date(), ";", msg, "; ETA:", round(Sys.time() + t.more), ";", cur, "/", tot, "(", round(cur/tot*100, 2), "% )"))
+  t.more = as.numeric(difftime(t.now, ori, units = "secs") * (tot / cur - 1))
+  cat(paste(date(), ";", msg, "; ETA:", round(Sys.time() + t.more), ";", cur, "/", tot, "(", round(cur/tot*100, 2), "% ) "))
 }
 
